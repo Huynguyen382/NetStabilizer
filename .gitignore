@@ -24,11 +24,13 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtual environments
+# Virtual environments & Local Python Portable runtime
 venv/
 env/
 ENV/
 .env
+python_runtime/
+python_embed.zip
 
 # Unit test / coverage reports
 htmlcov/
@@ -50,6 +52,6 @@ coverage.xml
 *.swp
 *.swo
 
-# Local backups
+# Local backups & logs
 network_backup.json
 test_results.log

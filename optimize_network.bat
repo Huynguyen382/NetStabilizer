@@ -14,6 +14,19 @@ if %errorLevel% == 0 (
 
 :run_opt
 cls
-python main.py --optimize
+set "PY_CMD=python"
+python --version >nul 2>&1
+if %errorlevel% NEQ 0 (
+    if exist "%~dp0python_runtime\python.exe" (
+        set "PY_CMD=%~dp0python_runtime\python.exe"
+    ) else (
+        call "%~dp0get_python.bat"
+        if exist "%~dp0python_runtime\python.exe" (
+            set "PY_CMD=%~dp0python_runtime\python.exe"
+        )
+    )
+)
+
+"%PY_CMD%" main.py --optimize
 echo.
 pause
